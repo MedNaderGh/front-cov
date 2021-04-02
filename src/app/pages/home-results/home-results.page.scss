@@ -1,0 +1,39 @@
+:host {
+  ion-content {
+    --background: var(--ion-color-light);
+  }
+
+  ion-card {
+    &.no-radius {
+      border-radius: 0;
+    }
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 !important;
+  }
+}
+.blink_me {
+  animation: blinker 1s linear infinite;
+  color: #6302ff;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.btn-top {
+  display: inline-block;
+}
+.centered-div {
+  text-align: center;
+}
+ion-icon {
+  font-size: 30px;
+  color: var(--ion-color-primary);
+}

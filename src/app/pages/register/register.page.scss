@@ -1,0 +1,15 @@
+:host {
+  ion-content {
+    --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
+  }
+}
+ion-select {
+  /* Applies to the value and placeholder color */
+  color: white;
+
+  /* Set a different placeholder color */
+  --placeholder-color: #971e49;
+
+  /* Set full opacity on the placeholder */
+  --placeholder-opacity: 1;
+}

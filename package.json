@@ -58,6 +58,7 @@
     "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.5.1",
     "leaflet-routing-machine": "^3.2.12",
+    "ng-circle-progress": "^1.5.1",
     "ngx-bar-rating": "^1.1.0",
     "node-sass": "^4.11.0",
     "passport": "^0.4.0",

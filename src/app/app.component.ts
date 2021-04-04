@@ -1,20 +1,20 @@
-import { Component, OnInit, ChangeDetectorRef, Output } from '@angular/core';
-import { UserService } from './pages/user.service';
-import { HttpHeaders,HttpClient } from '@angular/common/http';
-import { Platform, NavController } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Component, OnInit, ChangeDetectorRef, Output } from "@angular/core";
+import { UserService } from "./pages/user.service";
+import { HttpHeaders, HttpClient } from "@angular/common/http";
+import { Platform, NavController } from "@ionic/angular";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { Router } from "@angular/router";
-import { Pages } from './interfaces/pages';
-import { Location } from '@angular/common';
-import { interval } from 'rxjs';
+import { Pages } from "./interfaces/pages";
+import { Location } from "@angular/common";
+import { interval } from "rxjs";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   public appPages: Array<Pages>;
 
   constructor(
@@ -23,54 +23,56 @@ export class AppComponent implements OnInit{
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public navCtrl: NavController,
-    private user: UserService, private router: Router,private http: HttpClient,private ref: ChangeDetectorRef
+    private user: UserService,
+    private router: Router,
+    private http: HttpClient,
+    private ref: ChangeDetectorRef
   ) {
-     interval(100).subscribe(x =>
-      this.ngOnInit());
+    interval(100).subscribe((x) => this.ngOnInit());
     this.appPages = [
       {
-        title: 'Home',
-        url: '/home-results',
-        direct: 'root',
-        icon: 'home'
+        title: "Home",
+        url: "/home-results",
+        direct: "root",
+        icon: "home",
       },
       {
-        title: 'Nous Contacter',
-        url: '/about',
-        direct: 'forward',
-        icon: 'mail'
+        title: "Nous Contacter",
+        url: "/trajet",
+        direct: "forward",
+        icon: "mail",
       },
 
       {
-        title: 'Liste Favoris',
-        url: '/settings',
-        direct: 'forward',
-        icon: 'heart'
+        title: "Liste Favoris",
+        url: "/settings",
+        direct: "forward",
+        icon: "heart",
       },
-      
     ];
 
     this.initializeApp();
   }
   @Output()
   userDetails: any;
-  ttt:any;
-    ngOnInit() {
-      
-    }
+  ttt: any;
+  ngOnInit() {}
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    }).catch(() => {});
+    this.platform
+      .ready()
+      .then(() => {
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
+      })
+      .catch(() => {});
   }
 
   goToEditProgile() {
-    this.navCtrl.navigateForward('edit-profile');
+    this.navCtrl.navigateForward("edit-profile");
   }
 
   logout() {
     this.user.deleteToken();
-    this.router.navigate(['/']);
+    this.router.navigate(["/"]);
   }
 }

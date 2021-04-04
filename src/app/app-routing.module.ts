@@ -7,7 +7,10 @@ const routes: Routes = [
     path: "register",
     loadChildren: "./pages/register/register.module#RegisterPageModule",
   },
-  { path: "about", loadChildren: "./pages/about/about.module#AboutPageModule" },
+  {
+    path: "trajet",
+    loadChildren: "./pages/trajet/trajet.module#TrajetPageModule",
+  },
   {
     path: "home-results",
     loadChildren:

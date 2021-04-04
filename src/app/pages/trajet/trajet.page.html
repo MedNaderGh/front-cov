@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="bg-white" no-margin>
+    <ion-card-content>
+      <h1 margin-bottom>
+        <ion-text color="primary"
+          ><strong>Veuillez Choisi votre Trajet</strong></ion-text
+        >
+      </h1>
+      <ion-item>
+        <ion-label>Ville de depart</ion-label>
+        <ionic-selectable
+          [(ngModel)]="Ville_depart"
+          [items]="cities"
+          itemValueField="name"
+          itemTextField="name"
+          [canSearch]="true"
+          (onChange)="portChange($event)"
+        >
+        </ionic-selectable>
+      </ion-item>
+      <br />
+      <ion-item>
+        <ion-label>Ville d'arrivee</ion-label>
+        <ionic-selectable
+          [(ngModel)]="Ville_arrivee"
+          [items]="cities"
+          itemValueField="name"
+          itemTextField="name"
+          [canSearch]="true"
+          (onChange)="portChange($event)"
+        >
+        </ionic-selectable>
+      </ion-item>
+      <ion-item>
+        <div style="margin-right: 35%"></div>
+        <ion-button
+          class="btn-top"
+          color="secondary"
+          (click)="goToMap(Ville_depart,Ville_arrivee)"
+        >
+          <ion-icon name="globe"></ion-icon>
+          <ion-label>Choisir le trajectoire</ion-label>
+        </ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

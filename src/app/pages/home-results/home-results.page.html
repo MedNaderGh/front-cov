@@ -10,6 +10,7 @@
   <ion-card class="bg-white" no-margin>
     <ion-card-content>
       <ion-item no-padding class="animated fadeInUp">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <ion-button class="btn-top" color="secondary" (click)="onOrder()">
           Historique
         </ion-button>
@@ -18,12 +19,17 @@
         </ion-button>
       </ion-item>
       <ion-item no-padding class="animated fadeInUp">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <ion-icon name="logo-no-smoking"> </ion-icon
-        ><ion-toggle style="pointer-events: auto" color="primary"></ion-toggle>
-        <ion-icon name="musical-notes"> </ion-icon
-        ><ion-toggle color="primary"></ion-toggle><br />
-        <ion-icon name="briefcase"> </ion-icon
-        ><ion-toggle color="primary"></ion-toggle>
+        ><ion-toggle
+          style="pointer-events: auto"
+          [(ngModel)]="smoking"
+          color="primary"
+        ></ion-toggle>
+        <ion-icon src="assets/img/musical-notes.svg"> </ion-icon
+        ><ion-toggle color="primary" [(ngModel)]="music"></ion-toggle><br />
+        <ion-icon src="assets/img/briefcase.svg"> </ion-icon
+        ><ion-toggle color="primary" [(ngModel)]="bag"></ion-toggle>
       </ion-item>
       <ion-item no-padding class="animated fadeInUp">
         <ion-label class="no-margin-bottom" stacked>
@@ -42,28 +48,23 @@
           >
         </ion-range>
       </ion-item>
-      <div class="centered-div">
-        <ion-item
-          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <ion-label class="no-margin-bottom" stacked>
-            <ion-text color="dark" class="fw500">Places:</ion-text>
-          </ion-label>
-          <ion-range
-            min="1"
-            max="5"
-            step="1"
-            value="1"
-            class="no-padding-top"
-            [(ngModel)]="place"
+      <ion-item>
+        <ion-label class="no-margin-bottom" stacked>
+          <ion-text color="dark" class="fw500">Places:</ion-text>
+        </ion-label>
+        <ion-range
+          min="1"
+          max="4"
+          step="1"
+          value="1"
+          class="no-padding-top"
+          [(ngModel)]="place"
+        >
+          <ion-label slot="start"
+            ><ion-text color="primary"> {{place}} Place</ion-text></ion-label
           >
-            <ion-label slot="start"
-              ><ion-text color="primary"> {{place}} Place</ion-text></ion-label
-            >
-          </ion-range>
-
-          <br
-        /></ion-item>
-      </div>
+        </ion-range>
+      </ion-item>
       <ion-item>
         <ion-label class="fw500">Date :</ion-label>
         <ion-datetime
@@ -73,9 +74,14 @@
         ></ion-datetime>
       </ion-item>
       <ion-item>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-button class="btn-top" color="secondary" (click)="choixTrajet()">
-          <ion-label>Choisir le trajectoire</ion-label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-button
+          class="btn-top"
+          color="secondary"
+          (click)="choixTrajet(smoking,music,bag,myDate,place,prix)"
+        >
+          <ion-icon src="assets/img/globe.svg"></ion-icon>
+          <ion-label> Choisir le trajectoire</ion-label>
         </ion-button>
       </ion-item>
     </ion-card-content>
@@ -85,15 +91,15 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="schedule">
-      <ion-icon name="speedometer"></ion-icon>
+      <ion-icon src="assets/img/speedometer.svg"></ion-icon>
       <ion-label>Driver</ion-label>
     </ion-tab-button>
     <ion-tab-button tab="schedule">
-      <ion-icon name="car"></ion-icon>
+      <ion-icon src="assets/img/car.svg"></ion-icon>
       <ion-label>Taxi</ion-label>
     </ion-tab-button>
     <ion-tab-button tab="schedule">
-      <ion-icon name="person"></ion-icon>
+      <ion-icon src="assets/img/person.svg"></ion-icon>
       <ion-label>Passenger</ion-label>
     </ion-tab-button>
   </ion-tab-bar>

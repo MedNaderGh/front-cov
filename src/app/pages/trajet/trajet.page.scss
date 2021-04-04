@@ -1,0 +1,13 @@
+:host {
+  ion-content {
+    --background: linear-gradient(
+      -135deg,
+      var(--ion-color-medium),
+      var(--ion-color-light)
+    );
+  }
+}
+.btn-top {
+  height: 30px;
+  font-weight: bold;
+}

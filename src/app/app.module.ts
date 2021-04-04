@@ -30,12 +30,33 @@ import { AgmCoreModule } from "@agm/core";
 import { InAppBrowser } from "@ionic-native/in-app-browser/ngx";
 import { IonicRatingModule } from "ionic4-rating";
 import { BarRatingModule } from "ngx-bar-rating";
-import { ContactComponent } from "./contact/contact.component";
+import { IonicSelectableModule } from "ionic-selectable";
+import { NgCircleProgressModule } from "ng-circle-progress";
 @NgModule({
-  declarations: [AppComponent, NotificationsComponent, ContactComponent],
+  declarations: [AppComponent, NotificationsComponent],
   imports: [
     IonicRatingModule,
     BarRatingModule,
+    NgCircleProgressModule.forRoot({
+      backgroundStrokeWidth: 0,
+      backgroundPadding: 7,
+      space: -3,
+      toFixed: 0,
+      outerStrokeWidth: 4,
+      outerStrokeColor: "#4d94ff",
+      innerStrokeWidth: 2,
+      innerStrokeColor: "#e7e8ea",
+      animationDuration: 200,
+      animation: true,
+      startFromZero: false,
+      responsive: false,
+      showUnits: true,
+      showTitle: true,
+      showSubtitle: true,
+      showImage: false,
+      renderOnClick: false,
+    }),
+    IonicSelectableModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyDCa1LUe1vOczX1hO_iGYgyo8p_jYuGOPU",
     }),

@@ -11,6 +11,15 @@ import {
 import { UserService } from "../user.service";
 import { Router } from "@angular/router";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
+import { Geolocation } from "@ionic-native/geolocation/ngx";
+
+import {
+  NativeGeocoder,
+  NativeGeocoderResult,
+  NativeGeocoderOptions,
+} from "@ionic-native/native-geocoder/ngx";
+
+
 class City {
   public name: string;
 }
@@ -24,6 +33,9 @@ export class TrajetPage implements OnInit {
   userDetails: any;
   cities: City[];
   city: City;
+  lat: any;
+  lng: any;
+  recommandation :any[];
 
   constructor(
     private http: HttpClient,
@@ -34,6 +46,8 @@ export class TrajetPage implements OnInit {
     public loadingCtrl: LoadingController,
     private formBuilder: FormBuilder,
     private user: UserService,
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder,
     private router: Router
   ) {
     this.cities = [
@@ -845,9 +859,41 @@ export class TrajetPage implements OnInit {
         name: "El Ksar",
       },
     ];
+
+    this.recommandation=[
+      {
+        name:"sahbi",
+        lastname:"bannour"
+      },
+      {
+        name:"abir",
+        lastname:"bouajila"
+      },
+      {
+        name:"amira",
+        lastname:"issatso"
+      },
+      {
+        name:"nader",
+        lastname:"sud tunisie"
+      }
+    ]
+
   }
 
   ngOnInit() {
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.lat=resp.coords.latitude;
+      this.lng=resp.coords.longitude;
+      console.log(this.lat);
+      console.log(this.lng);
+ 
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+
+
     this.contactForm = this.formBuilder.group({
       email: [
         "",
@@ -885,17 +931,7 @@ export class TrajetPage implements OnInit {
     console.log("port:", event.value);
   }
   goToMap(Ville_depart, Ville_arrivee) {
-    var Ride = {
-      Ville_arrivee: Ville_arrivee.name,
-      Ville_depart: Ville_depart.name,
-    };
-    var RideString = JSON.stringify(Ride);
-    var RideOld = localStorage.getItem("Ride");
-    RideOld = RideOld.slice(0, -1);
-    RideString = RideString.substring(1);
-    RideOld = RideOld + "," + RideString;
-    localStorage.setItem("Ride", RideOld);
-    console.log(RideOld);
+    
     this.router.navigateByUrl("/map");
   }
   envoyer(form: FormGroup) {
@@ -927,5 +963,9 @@ export class TrajetPage implements OnInit {
       closeButtonText: "X",
     });
     toast.present();
+  }
+
+  view(){
+    this.router.navigateByUrl("/view-drive");
   }
 }

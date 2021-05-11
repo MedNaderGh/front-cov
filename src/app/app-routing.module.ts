@@ -16,7 +16,14 @@ const routes: Routes = [
     loadChildren:
       "./pages/home-results/home-results.module#HomeResultsPageModule",
   },
-  { path: "map", loadChildren: "./pages/map/map.module#MapPageModule" },
+  { path: "map", 
+  loadChildren: "./pages/map/map.module#MapPageModule" 
+},
+  { 
+    path: 'view-drive',
+   loadChildren: './pages/view-drive/view-drive.module#ViewDrivePageModule' 
+  },
+
 ];
 
 @NgModule({

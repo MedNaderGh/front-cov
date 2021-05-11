@@ -13,7 +13,7 @@ import { User } from "./user";
 })
 export class UserService {
   noAuthHeader = { headers: new HttpHeaders({ NoAuth: "True" }) };
-  uri = "http://localhost:4000/v1/user";
+  uri = "http://192.168.1.3:4000/v1/user";
   userDetails: Object;
   constructor(
     private http: HttpClient,

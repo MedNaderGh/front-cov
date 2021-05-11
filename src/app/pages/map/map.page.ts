@@ -15,6 +15,7 @@ import {
   NativeGeocoderOptions,
 } from "@ionic-native/native-geocoder/ngx";
 import { ToastController } from "@ionic/angular";
+import { removeDebugNodeFromIndex } from "@angular/core/src/debug/debug_node";
 var blueicon = L.icon({
   iconRetinaUrl: "assets/img/marker-icon-2x.png",
   iconUrl: "assets/img/marker-icon.png",
@@ -53,6 +54,21 @@ export class MapPage implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.lat=resp.coords.latitude;
+      this.lng=resp.coords.longitude;
+      console.log(this.lat);
+      console.log(this.lng);
+ 
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+     
+
+
+
+
     setTimeout(() => {
       this.map = new Map("map").setView(
         [35.82585745561656, 10.363860849066295],
@@ -61,12 +77,19 @@ export class MapPage implements OnInit {
       this.map.invalidateSize();
       tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "Map",
-        maxZoom: 18,
+        maxZoom: 8,
       }).addTo(this.map);
       this.map.on("click", <LeafletMouseEvent>(e) => {
-        L.marker([e.latlng.lat, e.latlng.lng], { icon: blueicon }).addTo(
-          this.map
-        );
+        L.circle([this.lat, this.lng], { color:'red' ,
+                                         fillColor:'red',
+                                         opacity:0.6,
+                                         radius:20000 })
+      .addTo( this.map);
+      });
+    });
+        
+  }
+ /*       
         this.i++;
 
         if (this.i == 1) {
@@ -131,4 +154,9 @@ export class MapPage implements OnInit {
     });
     toast.present();
   }
+
+*/
+      
+
+
 }

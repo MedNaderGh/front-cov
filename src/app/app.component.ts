@@ -49,6 +49,12 @@ export class AppComponent implements OnInit {
         direct: "forward",
         icon: "heart",
       },
+      {
+        title: "map",
+        url: "/map",
+        direct: "forward",
+        icon: "map",
+      },
     ];
 
     this.initializeApp();

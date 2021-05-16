@@ -1,3 +1,4 @@
+import { PositionSRService } from './../../position-sr.service';
 import { Component, OnInit, Input } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IonicSelectableComponent } from "ionic-selectable";
@@ -12,6 +13,8 @@ import { UserService } from "../user.service";
 import { Router } from "@angular/router";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
+
+
 
 import {
   NativeGeocoder,
@@ -48,7 +51,8 @@ export class TrajetPage implements OnInit {
     private user: UserService,
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder,
-    private router: Router
+    private router: Router,
+    private PositionSRService:PositionSRService
   ) {
     this.cities = [
       {
@@ -888,6 +892,9 @@ export class TrajetPage implements OnInit {
       this.lng=resp.coords.longitude;
       console.log(this.lat);
       console.log(this.lng);
+      this.PositionSRService.SendPosition(this.lat,this.lng);
+      this.PositionSRService.ListRecommandation();
+
  
      }).catch((error) => {
        console.log('Error getting location', error);

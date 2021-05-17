@@ -1,6 +1,6 @@
 {
-  "name": "issatbiblio",
-  "description": "issatbiblio",
+  "name": "chaya3ni",
+  "description": "chaya3ni",
   "version": "1.0.0",
   "author": "Mohamed Nader Ghorghar",
   "homepage": "https://google.com",
@@ -27,7 +27,7 @@
     "@angular/router": "^7.2.6",
     "@asymmetrik/ngx-leaflet": "^8.1.0",
     "@ionic-native/core": "^5.2.0",
-    "@ionic-native/geolocation": "^5.5.1",
+    "@ionic-native/geolocation": "^5.32.1",
     "@ionic-native/google-maps": "^5.5.0",
     "@ionic-native/http": "^5.5.1",
     "@ionic-native/in-app-browser": "^5.5.1",
@@ -64,7 +64,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.3.3",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {

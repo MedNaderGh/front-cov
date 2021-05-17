@@ -17,6 +17,7 @@ const routes: Routes = [
       "./pages/home-results/home-results.module#HomeResultsPageModule",
   },
   { path: "map", loadChildren: "./pages/map/map.module#MapPageModule" },
+  { path: "taxi", loadChildren: "./pages/taxi/taxi.module#TaxiPageModule" },
 ];
 
 @NgModule({

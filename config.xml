@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionictheme.ionic4start" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>issatbiblio</name>
-    <description>issatbiblio</description>
-    <author email="mohamednader6@gmail.com" href="https://google.com">issatbiblio</author>
+    <name>chaya3ni</name>
+    <description>chaya3ni</description>
+    <author email="mohamednader6@gmail.com" href="https://google.com">chaya3ni</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

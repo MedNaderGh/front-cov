@@ -18,6 +18,10 @@ const routes: Routes = [
   },
   { path: "map", loadChildren: "./pages/map/map.module#MapPageModule" },
   { path: "taxi", loadChildren: "./pages/taxi/taxi.module#TaxiPageModule" },
+  {
+    path: "profil",
+    loadChildren: "./pages/profil/profil.module#ProfilPageModule",
+  },
 ];
 
 @NgModule({

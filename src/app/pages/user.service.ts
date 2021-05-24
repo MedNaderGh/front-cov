@@ -69,6 +69,13 @@ export class UserService {
       this.noAuthHeader
     );
   }
+  getcomment(id) {
+    return this.http.get(`${this.uri}/getcomment/` + `${id}`);
+  }
+  commenter(comment) {
+    return this.http.post(`${this.uri}/comment/`, comment);
+  }
+
   isLoggedIn() {
     var userPayload = this.getUserPayload();
     if (userPayload) return userPayload.exp > Date.now() / 1000;

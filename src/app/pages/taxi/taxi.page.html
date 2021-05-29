@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Espace Taxi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="max-height: 10%">
+    <ion-tabs>
+      <ion-tab-bar slot="top">
+        <ion-tab-button tab="schedule">
+          <ion-icon src="assets/img/speedometer.svg"></ion-icon>
+          <ion-label>Driver</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="schedule">
+          <ion-icon src="assets/img/car.svg"></ion-icon>
+          <ion-label>Taxi</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="schedule">
+          <ion-icon src="assets/img/person.svg"></ion-icon>
+          <ion-label>Passenger</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+  <div
+    style="margin-left: 40%; margin-top: 8%; display: flex; align-items: center"
+  >
+    <label style="margin-left: 10px; font-weight: bold">passenger</label>
+    <ion-toggle
+      slot="end"
+      [(ngModel)]="taxi"
+      color="warning"
+      (ionChange)="reload(taxi)"
+    ></ion-toggle>
+    <label style="margin-left: 10px; font-weight: bold">taxi</label>
+  </div>
+  <div id="map" style="height: 76%; margin-top: 2%"></div>
+</ion-content>
+<!-- <ion-tabs> -->
+<!-- <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="schedule">
+      <ion-icon src="assets/img/speedometer.svg"></ion-icon>
+      <ion-label>Driver</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="schedule">
+      <ion-icon src="assets/img/car.svg"></ion-icon>
+      <ion-label>Taxi</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="schedule">
+      <ion-icon src="assets/img/person.svg"></ion-icon>
+      <ion-label>Passenger</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+ -->

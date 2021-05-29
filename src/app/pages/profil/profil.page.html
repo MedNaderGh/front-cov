@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="commentForm">
+    <div>
+      laissez un commentaire : <br />
+      <dhm-star-rating
+        [(value)]="customerRating"
+        [(ngModel)]="rate"
+        formControlName="rate"
+      ></dhm-star-rating>
+    </div>
+
+    <ion-item *ngIf="show">
+      <ion-input
+        type="text"
+        placeholder="commentaire :"
+        formControlName="commentaire"
+      ></ion-input>
+      <ion-button clear item-right (click)="commenter(commentForm)"
+        >Commenter</ion-button
+      >
+    </ion-item>
+  </form>
+  <ion-list *ngFor="let cmnt of cmnt">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/img/avatar.png" />
+      </ion-avatar>
+      <ion-label
+        ><h3>{{cmnt.name_user}}</h3>
+        <p>{{cmnt.Comment}}</p>
+        <p>{{cmnt.date.slice(0, -5).replace('T',' ')}}</p>
+      </ion-label>
+      <dhm-star-rating readOnly="true" value="{{cmnt.rate}}"></dhm-star-rating>
+    </ion-item>
+  </ion-list>
+</ion-content>

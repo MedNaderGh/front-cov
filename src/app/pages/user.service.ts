@@ -6,6 +6,7 @@ import {
   MenuController,
   LoadingController,
 } from "@ionic/angular";
+import { Observable } from "rxjs";
 import { Router } from "@angular/router";
 import { User } from "./user";
 @Injectable({
@@ -23,20 +24,6 @@ export class UserService {
   ) {}
   goToLogin() {
     this.navCtrl.navigateRoot("/");
-  }
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: "Inscription reussi",
-      duration: 2000,
-    });
-    toast.present();
-  }
-  async erreurToast() {
-    const toast = await this.toastController.create({
-      message: "email deja existe",
-      duration: 2000,
-    });
-    toast.present();
   }
   login(authCredentials) {
     return this.http.post(`${this.uri}/authenticate`, authCredentials);
@@ -66,6 +53,28 @@ export class UserService {
       return JSON.parse(userPayload);
     } else return null;
   }
+  taxi() {
+    return this.http.get(`${this.uri}/taxi`, this.noAuthHeader);
+  }
+  sendOffre(id) {
+    return this.http.post(`${this.uri}/offre`, { id }, this.noAuthHeader);
+  }
+  deleteOffre(id) {
+    return this.http.post(`${this.uri}/deleteoffre`, { id }, this.noAuthHeader);
+  }
+  checkOffre(id): Observable<any> {
+    return this.http.post(
+      `${this.uri}/checkoffre`,
+      { id: id },
+      this.noAuthHeader
+    );
+  }
+  getcomment(id) {
+    return this.http.get(`${this.uri}/getcomment/` + `${id}`);
+  }
+  commenter(comment) {
+    return this.http.post(`${this.uri}/comment/`, comment);
+  }
 
   isLoggedIn() {
     var userPayload = this.getUserPayload();
@@ -73,50 +82,3 @@ export class UserService {
     else return false;
   }
 }
-/* login(email: String, password: String){
-    const obj = {
-      email: email,
-      password: password
-    };
-  this.http.post(`${this.uri}/login`,obj)
-  .subscribe(
-    res=>{this.router.navigate(['/home-results'])
-    this.logsToast()} ,
-    errorResp=>this.logeToast()
-  )
-  }
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'Inscription reussi',
-      duration: 2000
-    });
-    toast.present();
-  }
-  async erreurToast() {
-    const toast = await this.toastController.create({
-      message: 'email deja existe',
-      duration: 2000
-    });
-    toast.present();
-  }
-  async logsToast() {
-    const toast = await this.toastController.create({
-      message: 'login avec succes',
-      duration: 2000
-    });
-    toast.present();
-  }
-  async logeToast() {
-    const toast = await this.toastController.create({
-      message: 'login ou mot de passe est incorrecte',
-      duration: 2000
-    });
-    toast.present();
-  }
-  goToLogin() {
-    this.navCtrl.navigateRoot('/');
-  }
-  goToInscription() {
-    this.navCtrl.navigateRoot('/registry');
-  }
-}*/

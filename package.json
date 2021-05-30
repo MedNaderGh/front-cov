@@ -14,7 +14,7 @@
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^1.1.0",
+    "@agm/core": "^1.0.0-beta.7",
     "@angular/animations": "^7.2.6",
     "@angular/cdk": "~7.3.5",
     "@angular/common": "^7.2.6",
@@ -63,7 +63,7 @@
     "leaflet-routing-machine": "^3.2.12",
     "ng-circle-progress": "^1.5.1",
     "ngx-bar-rating": "^1.1.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
@@ -98,7 +98,12 @@
     "protractor": "~5.4.0",
     "ts-node": "~8.0.0",
     "tslint": "~5.12.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-ionic-webview": "^2.0.0",
+    "cordova-plugin-ionic-keyboard": "^2.0.5"
   },
   "cordova": {
     "platforms": [
@@ -109,7 +114,12 @@
       "cordova-plugin-geolocation": {},
       "cordova-plugin-nativegeocoder": {},
       "cordova-plugin-advanced-http": {},
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {}
     }
   }
 }

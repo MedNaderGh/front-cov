@@ -94,13 +94,13 @@
       <ion-icon src="assets/img/speedometer.svg"></ion-icon>
       <ion-label>Driver</ion-label>
     </ion-tab-button>
-    <ion-tab-button tab="schedule">
+    <ion-tab-button [routerLink]="['/taxi']">
       <ion-icon src="assets/img/car.svg"></ion-icon>
       <ion-label>Taxi</ion-label>
     </ion-tab-button>
-    <ion-tab-button tab="schedule">
+    <ion-tab-button [routerLink]="['/ride']" >
       <ion-icon src="assets/img/person.svg"></ion-icon>
-      <ion-label>Passenger</ion-label>
+      <ion-label >Passenger</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
-</ion-tabs>
+</ion-tabs> 

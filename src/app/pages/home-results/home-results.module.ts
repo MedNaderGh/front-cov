@@ -8,6 +8,7 @@ import { PopmenuComponent } from "./../../components/popmenu/popmenu.component";
 import { NativeGeocoder } from "@ionic-native/native-geocoder/ngx";
 import { HomeResultsPage } from "./home-results.page";
 import { IonicSelectableModule } from "ionic-selectable";
+
 const routes: Routes = [
   {
     path: "",
@@ -27,4 +28,7 @@ const routes: Routes = [
   ],
   declarations: [HomeResultsPage, PopmenuComponent],
 })
-export class HomeResultsPageModule {}
+export class HomeResultsPageModule {
+ 
+ 
+}

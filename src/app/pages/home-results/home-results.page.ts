@@ -148,4 +148,7 @@ export class HomeResultsPage implements OnInit {
   search(msg: any) {
     this.show = false;
   }
+  passenger(){
+    this.router.navigateByUrl("ride");
+  }
 }
